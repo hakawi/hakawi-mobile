@@ -9,16 +9,32 @@ export default function HealthProgress(props) {
     initialHealthWidth = 320,
     defaultHealthWidth = 320,
   } = props;
+  const heartState = {
+    green: require('../../assets/images/health_progress/heart.png'),
+    red: require('../../assets/images/health_progress/heart_red.png'),
+  }
   const [healthPercent, setHealthPercent] = useState(initialHealthPercent);
   const [healthWidth, setHealthWidth] = useState(initialHealthWidth);
+  const [mainColor, setMainColor] = useState(colors.main);
+  const [heartSource, setHeartSource] = useState(heartState.green);
+
   useEffect(() => {
     let myInterval = setInterval(() => {
       setHealthWidth(healthWidth - 1);
       if (healthWidth === 0) {
         setHealthWidth(initialHealthWidth);
       }
-      setHealthPercent(parseInt((healthWidth * 100) / defaultHealthWidth));
-    }, 10);
+      const _healthPercent = parseInt((healthWidth * 100) / defaultHealthWidth);
+      if(_healthPercent < 50){
+        setMainColor(colors.red);
+        setHeartSource(heartState.red);
+      }
+      if(_healthPercent >= 50){
+        setMainColor(colors.main);
+        setHeartSource(heartState.green);
+      }
+      setHealthPercent(_healthPercent);
+    }, 1000);
     return () => {
       clearInterval(myInterval);
     };
@@ -33,7 +49,7 @@ export default function HealthProgress(props) {
       <View style={{zIndex: 2, position: 'relative'}}>
         <Image
           style={{width: 68, height: 58}}
-          source={require('../../assets/images/health_progress/heart.png')}
+          source={heartSource}
         />
         <View
           style={{
@@ -63,7 +79,7 @@ export default function HealthProgress(props) {
         style={{
           width: healthWidth,
           height: 33,
-          backgroundColor: colors.main,
+          backgroundColor: mainColor,
           zIndex: 1,
           position: 'absolute',
           borderRadius: healthWidth >= defaultHealthWidth - 10 ? 10 : 0,
@@ -79,7 +95,7 @@ export default function HealthProgress(props) {
           left: 30,
           zIndex: 0,
           borderWidth: 2,
-          borderColor: colors.main,
+          borderColor: mainColor,
         }}></View>
     </View>
   );

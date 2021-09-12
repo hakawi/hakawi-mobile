@@ -7,6 +7,7 @@ export default function WorkTracking(props) {
   const {initialMinute = 0, initialSeconds = 0} = props;
   const [minutes, setMinutes] = useState(initialMinute);
   const [seconds, setSeconds] = useState(initialSeconds);
+  const [mainColor, setMainColor] = useState(colors.main);
   useEffect(() => {
     let myInterval = setInterval(() => {
       setSeconds(seconds + 1);
@@ -25,7 +26,7 @@ export default function WorkTracking(props) {
       <ChakraPetchBoldText
         style={{
           fontSize: 20,
-          color: colors.main,
+          color: mainColor,
           textShadowOffset: {width: 1, height: 1},
           textShadowRadius: 0,
           textShadowColor: 'white',
@@ -35,7 +36,7 @@ export default function WorkTracking(props) {
       <ChakraPetchBoldText
         style={{
           fontSize: 75,
-          color: colors.main,
+          color: mainColor,
           textShadowOffset: {width: 2, height: 2},
           textShadowRadius: 0,
           textShadowColor: 'white',
@@ -46,7 +47,7 @@ export default function WorkTracking(props) {
       </ChakraPetchBoldText>
       <View
         style={{
-          backgroundColor: colors.main,
+          backgroundColor: mainColor,
           paddingHorizontal: 20,
           borderRadius: 10,
         }}>
