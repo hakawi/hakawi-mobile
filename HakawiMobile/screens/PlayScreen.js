@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {View} from 'react-native';
-import Container from '../components/Container/index';
-import HealthProgress from '../components/HealthProgress/index';
-import WorkTracking from '../components/WorkTracking/index';
-import BottomButton from '../components/BottomButton/index';
-import PlantBackground from '../components/PlantBackground/index';
+import Container from '../components/Container';
+import HealthProgress from '../components/HealthProgress';
+import WorkTracking from '../components/WorkTracking';
+import BottomButton from '../components/BottomButton';
+import PlantBackground from '../components/PlantBackground';
 
 export default function PlayScreen({navigation}) {
   return (

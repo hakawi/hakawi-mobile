@@ -16,8 +16,20 @@ function App() {
           headerShown: false,
         }}>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Play" component={PlayScreen} />
-        <Stack.Screen name="Mission" component={MissionScreen} />
+        <Stack.Screen
+          name="Play"
+          component={PlayScreen}
+          options={{
+            animation: 'fade',
+          }}
+        />
+        <Stack.Screen
+          name="Mission"
+          component={MissionScreen}
+          options={{
+            animation: 'fade',
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
