@@ -19,11 +19,27 @@ function BungeeInlineText(props) {
   );
 }
 
+function ChakraPetchBoldText(props) {
+  return (
+    <Text style={{fontFamily: 'ChakraPetch-Bold', ...props.style}}>
+      {props.children}
+    </Text>
+  );
+}
+
 function ShadowButton(props) {
   return (
-    <TouchableOpacity style={{position: 'relative', ...props.style}}>
+    <TouchableOpacity
+      style={{position: 'relative', ...props.style}}
+      onPress={props.onPress}>
       <View
-        style={{backgroundColor: colors.main, padding: 10, borderRadius: 10, position: 'relative', zIndex: 1}}>
+        style={{
+          backgroundColor: colors.main,
+          padding: 10,
+          borderRadius: 10,
+          position: 'relative',
+          zIndex: 1,
+        }}>
         <BungeeInlineText style={{color: 'white', fontSize: 22}}>
           {props.children}
         </BungeeInlineText>
@@ -43,6 +59,105 @@ function ShadowButton(props) {
         </BungeeInlineText>
       </View>
     </TouchableOpacity>
+  );
+}
+
+function WorkTracking() {
+  return (
+    <View style={{alignItems: 'center'}}>
+      <ChakraPetchBoldText
+        style={{
+          fontSize: 20,
+          color: colors.main,
+          textShadowOffset: {width: 1, height: 1},
+          textShadowRadius: 0,
+          textShadowColor: 'white',
+        }}>
+        WORK TRACKING
+      </ChakraPetchBoldText>
+      <ChakraPetchBoldText
+        style={{
+          fontSize: 75,
+          color: colors.main,
+          textShadowOffset: {width: 2, height: 2},
+          textShadowRadius: 0,
+          textShadowColor: 'white',
+        }}>
+        01:23:31
+      </ChakraPetchBoldText>
+      <ChakraPetchBoldText
+        style={{
+          fontSize: 20,
+          color: colors.main,
+          textShadowOffset: {width: 1, height: 1},
+          textShadowRadius: 0,
+          textShadowColor: 'white',
+        }}>
+        YOU SHOULD FOCUS ON YOUR WORK
+      </ChakraPetchBoldText>
+    </View>
+  );
+}
+
+function HealthProgress(props) {
+  return (
+    <View
+      style={{
+        position: 'relative',
+        alignItems: 'center',
+        flexDirection: 'row',
+      }}>
+      <View style={{zIndex: 2, position: 'relative'}}>
+        <Image
+          style={{width: 68, height: 58}}
+          source={require('./assets/images/health_progress/heart.png')}
+        />
+        <View
+          style={{
+            position: 'absolute',
+            width: 70,
+            height: 55,
+          }}>
+          <View
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <ChakraPetchBoldText
+              style={{
+                fontSize: 20,
+                color: 'white',
+                textShadowRadius: 0,
+                textShadowColor: 'white',
+              }}>
+              82%
+            </ChakraPetchBoldText>
+          </View>
+        </View>
+      </View>
+      <View
+        style={{
+          width: 178,
+          height: 33,
+          backgroundColor: colors.main,
+          zIndex: 1,
+          position: 'absolute',
+          left: 30,
+        }}></View>
+      <View
+        style={{
+          width: 317,
+          height: 33,
+          backgroundColor: 'white',
+          position: 'absolute',
+          borderRadius: 10,
+          left: 30,
+          zIndex: 0,
+          borderWidth: 2,
+          borderColor: colors.main,
+        }}></View>
+    </View>
   );
 }
 
@@ -89,7 +204,8 @@ function HomeScreen({navigation}) {
           source={require('./assets/images/home/girl.png')}
         />
       </View>
-      <View style={{justifyContent: 'center', alignItems: 'center', marginTop: 20}}>
+      <View
+        style={{justifyContent: 'center', alignItems: 'center', marginTop: 20}}>
         <BungeeInlineText style={{fontSize: 100, color: colors.main}}>
           HAKAWI
         </BungeeInlineText>
@@ -98,9 +214,31 @@ function HomeScreen({navigation}) {
         </BungeeInlineText>
       </View>
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <ShadowButton>PLAY NOW</ShadowButton>
+        <ShadowButton
+          onPress={() => {
+            navigation.navigate('Play');
+          }}>
+          PLAY NOW
+        </ShadowButton>
         <ShadowButton style={{marginTop: 15}}>SETTING</ShadowButton>
         <ShadowButton style={{marginTop: 15}}>HELP</ShadowButton>
+      </View>
+    </View>
+  );
+}
+
+function PlayScreen() {
+  return (
+    <View style={{flex: 1, alignItems: 'center', padding: 10}}>
+      <View style={{position: 'absolute'}}>
+        <Image
+          style={{width: windowWidth, height: windowHeight, left: 0, top: 0}}
+          source={require('./assets/images/background.png')}
+        />
+      </View>
+      <View>
+        <HealthProgress></HealthProgress>
+        <WorkTracking></WorkTracking>
       </View>
     </View>
   );
@@ -125,6 +263,7 @@ function App() {
           headerShown: false,
         }}>
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Play" component={PlayScreen} />
         <Stack.Screen name="Details" component={DetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
