@@ -1,112 +1,134 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import * as React from 'react';
+import {View, Text, Image, Dimensions, TouchableOpacity} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const colors = {
+  main: '#98B352',
+  secondary: '#B9DC57',
+};
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+function BungeeInlineText(props) {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+    <Text style={{fontFamily: 'BungeeInline-Regular', ...props.style}}>
+      {props.children}
+    </Text>
+  );
+}
+
+function ShadowButton(props) {
+  return (
+    <TouchableOpacity style={{position: 'relative', ...props.style}}>
+      <View
+        style={{backgroundColor: colors.main, padding: 10, borderRadius: 10, position: 'relative', zIndex: 1}}>
+        <BungeeInlineText style={{color: 'white', fontSize: 22}}>
+          {props.children}
+        </BungeeInlineText>
+      </View>
+      <View
+        style={{
+          position: 'absolute',
+          zIndex: 0,
+          backgroundColor: colors.secondary,
+          padding: 10,
+          borderRadius: 10,
+          left: 5,
+          top: 5,
+        }}>
+        <BungeeInlineText style={{color: 'white', fontSize: 22}}>
+          {props.children}
+        </BungeeInlineText>
+      </View>
+    </TouchableOpacity>
+  );
+}
+
+function HomeScreen({navigation}) {
+  return (
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: '#FDFAE7',
+      }}>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'stretch',
+          position: 'absolute',
+          width: windowWidth,
+        }}>
+        <Image
+          style={{width: 181, height: 193, left: 0, top: 0}}
+          source={require('./assets/images/home/path_left.png')}
+        />
+        <Image
+          style={{width: 182, height: 228, right: 0, top: 0}}
+          source={require('./assets/images/home/path_right.png')}
+        />
+      </View>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'stretch',
+          position: 'absolute',
+          width: windowWidth,
+        }}>
+        <Image
+          style={{width: 286, height: 414, left: 0, top: 0}}
+          source={require('./assets/images/home/man.png')}
+        />
+        <Image
+          style={{width: 317, height: 252, right: 0, top: 153}}
+          source={require('./assets/images/home/girl.png')}
+        />
+      </View>
+      <View style={{justifyContent: 'center', alignItems: 'center', marginTop: 20}}>
+        <BungeeInlineText style={{fontSize: 100, color: colors.main}}>
+          HAKAWI
+        </BungeeInlineText>
+        <BungeeInlineText style={{fontSize: 22, color: colors.main}}>
+          #makeyourhealthbetter
+        </BungeeInlineText>
+      </View>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <ShadowButton>PLAY NOW</ShadowButton>
+        <ShadowButton style={{marginTop: 15}}>SETTING</ShadowButton>
+        <ShadowButton style={{marginTop: 15}}>HELP</ShadowButton>
+      </View>
     </View>
   );
-};
+}
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+function DetailsScreen() {
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>Details Screen</Text>
+    </View>
   );
-};
+}
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+const Stack = createNativeStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Details" component={DetailsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
 export default App;

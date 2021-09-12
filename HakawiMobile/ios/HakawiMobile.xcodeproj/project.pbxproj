@@ -14,6 +14,19 @@
 		18649C56DEC132CA92FB1C7F /* libPods-HakawiMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 795CC6B237218256A835ECB0 /* libPods-HakawiMobile.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		DC5A9E2AF1DC8D2174C6A2A6 /* libPods-HakawiMobile-HakawiMobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C184BDEA524539EE99B3BE /* libPods-HakawiMobile-HakawiMobileTests.a */; };
+		DE830D598A0D48F2979A8F4E /* BungeeInline-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89BD942D1E54638B0D34295 /* BungeeInline-Regular.ttf */; };
+		5FECDE08BDE64D64804F4EBE /* ChakraPetch-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 347F58E4FC9F44378D953F6D /* ChakraPetch-Bold.ttf */; };
+		802AB028446143ECB4B0C7EF /* ChakraPetch-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EA0538FEB2145AC85F82EA8 /* ChakraPetch-BoldItalic.ttf */; };
+		3BB2CCDD43314D2D900CC851 /* ChakraPetch-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52727559C097472D976D4D25 /* ChakraPetch-Italic.ttf */; };
+		A7A80E1961BE47B3BDBCC651 /* ChakraPetch-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC6F15A50A4B4FFBB5796F07 /* ChakraPetch-Light.ttf */; };
+		09DECE59C0CE458889036F57 /* ChakraPetch-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16FA87F671D04D968BF81D4C /* ChakraPetch-LightItalic.ttf */; };
+		ECA4984E1FC74B3FA936AB14 /* ChakraPetch-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D04D53DC0B240E0B28DEEA1 /* ChakraPetch-Medium.ttf */; };
+		689FAAE0B6AA4FB5B74073DC /* ChakraPetch-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B303AEAE39CD455CAEE28A3A /* ChakraPetch-MediumItalic.ttf */; };
+		40C193D0BB684F80BBC8A85C /* ChakraPetch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67F7186A37F6416980E5EAD7 /* ChakraPetch-Regular.ttf */; };
+		73A738F31DDD4A20A4117B46 /* ChakraPetch-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0993128BAD5B49F391419BB3 /* ChakraPetch-SemiBold.ttf */; };
+		64309A1722AE4E47A673952E /* ChakraPetch-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7656BADAB6C43B3B6CD93F4 /* ChakraPetch-SemiBoldItalic.ttf */; };
+		5B0672DE21AE45DF8EB9844B /* ChauPhilomeneOne-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D0E869E2F864A8C8BAA0A34 /* ChauPhilomeneOne-Italic.ttf */; };
+		2D9D234DB0114BC9AD55E6FC /* ChauPhilomeneOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6BFBE4C33EC47B69FFFE0FA /* ChauPhilomeneOne-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +57,19 @@
 		AF7D478785020638531AC9C9 /* Pods-HakawiMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakawiMobile.debug.xcconfig"; path = "Target Support Files/Pods-HakawiMobile/Pods-HakawiMobile.debug.xcconfig"; sourceTree = "<group>"; };
 		B9AE56736620407DD79105C8 /* Pods-HakawiMobile-HakawiMobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakawiMobile-HakawiMobileTests.release.xcconfig"; path = "Target Support Files/Pods-HakawiMobile-HakawiMobileTests/Pods-HakawiMobile-HakawiMobileTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		C89BD942D1E54638B0D34295 /* BungeeInline-Regular.ttf */ = {isa = PBXFileReference; name = "BungeeInline-Regular.ttf"; path = "../assets/fonts/BungeeInline-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		347F58E4FC9F44378D953F6D /* ChakraPetch-Bold.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-Bold.ttf"; path = "../assets/fonts/ChakraPetch-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2EA0538FEB2145AC85F82EA8 /* ChakraPetch-BoldItalic.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-BoldItalic.ttf"; path = "../assets/fonts/ChakraPetch-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		52727559C097472D976D4D25 /* ChakraPetch-Italic.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-Italic.ttf"; path = "../assets/fonts/ChakraPetch-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BC6F15A50A4B4FFBB5796F07 /* ChakraPetch-Light.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-Light.ttf"; path = "../assets/fonts/ChakraPetch-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		16FA87F671D04D968BF81D4C /* ChakraPetch-LightItalic.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-LightItalic.ttf"; path = "../assets/fonts/ChakraPetch-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7D04D53DC0B240E0B28DEEA1 /* ChakraPetch-Medium.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-Medium.ttf"; path = "../assets/fonts/ChakraPetch-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B303AEAE39CD455CAEE28A3A /* ChakraPetch-MediumItalic.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-MediumItalic.ttf"; path = "../assets/fonts/ChakraPetch-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		67F7186A37F6416980E5EAD7 /* ChakraPetch-Regular.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-Regular.ttf"; path = "../assets/fonts/ChakraPetch-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0993128BAD5B49F391419BB3 /* ChakraPetch-SemiBold.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-SemiBold.ttf"; path = "../assets/fonts/ChakraPetch-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B7656BADAB6C43B3B6CD93F4 /* ChakraPetch-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-SemiBoldItalic.ttf"; path = "../assets/fonts/ChakraPetch-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2D0E869E2F864A8C8BAA0A34 /* ChauPhilomeneOne-Italic.ttf */ = {isa = PBXFileReference; name = "ChauPhilomeneOne-Italic.ttf"; path = "../assets/fonts/ChauPhilomeneOne-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C6BFBE4C33EC47B69FFFE0FA /* ChauPhilomeneOne-Regular.ttf */ = {isa = PBXFileReference; name = "ChauPhilomeneOne-Regular.ttf"; path = "../assets/fonts/ChauPhilomeneOne-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +160,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				2C8A616F89174EF91CFD53EA /* Pods */,
+				3570FF62687B474E852C3EE1 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -148,6 +175,27 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		3570FF62687B474E852C3EE1 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				C89BD942D1E54638B0D34295 /* BungeeInline-Regular.ttf */,
+				347F58E4FC9F44378D953F6D /* ChakraPetch-Bold.ttf */,
+				2EA0538FEB2145AC85F82EA8 /* ChakraPetch-BoldItalic.ttf */,
+				52727559C097472D976D4D25 /* ChakraPetch-Italic.ttf */,
+				BC6F15A50A4B4FFBB5796F07 /* ChakraPetch-Light.ttf */,
+				16FA87F671D04D968BF81D4C /* ChakraPetch-LightItalic.ttf */,
+				7D04D53DC0B240E0B28DEEA1 /* ChakraPetch-Medium.ttf */,
+				B303AEAE39CD455CAEE28A3A /* ChakraPetch-MediumItalic.ttf */,
+				67F7186A37F6416980E5EAD7 /* ChakraPetch-Regular.ttf */,
+				0993128BAD5B49F391419BB3 /* ChakraPetch-SemiBold.ttf */,
+				B7656BADAB6C43B3B6CD93F4 /* ChakraPetch-SemiBoldItalic.ttf */,
+				2D0E869E2F864A8C8BAA0A34 /* ChauPhilomeneOne-Italic.ttf */,
+				C6BFBE4C33EC47B69FFFE0FA /* ChauPhilomeneOne-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -245,6 +293,19 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				DE830D598A0D48F2979A8F4E /* BungeeInline-Regular.ttf in Resources */,
+				5FECDE08BDE64D64804F4EBE /* ChakraPetch-Bold.ttf in Resources */,
+				802AB028446143ECB4B0C7EF /* ChakraPetch-BoldItalic.ttf in Resources */,
+				3BB2CCDD43314D2D900CC851 /* ChakraPetch-Italic.ttf in Resources */,
+				A7A80E1961BE47B3BDBCC651 /* ChakraPetch-Light.ttf in Resources */,
+				09DECE59C0CE458889036F57 /* ChakraPetch-LightItalic.ttf in Resources */,
+				ECA4984E1FC74B3FA936AB14 /* ChakraPetch-Medium.ttf in Resources */,
+				689FAAE0B6AA4FB5B74073DC /* ChakraPetch-MediumItalic.ttf in Resources */,
+				40C193D0BB684F80BBC8A85C /* ChakraPetch-Regular.ttf in Resources */,
+				73A738F31DDD4A20A4117B46 /* ChakraPetch-SemiBold.ttf in Resources */,
+				64309A1722AE4E47A673952E /* ChakraPetch-SemiBoldItalic.ttf in Resources */,
+				5B0672DE21AE45DF8EB9844B /* ChauPhilomeneOne-Italic.ttf in Resources */,
+				2D9D234DB0114BC9AD55E6FC /* ChauPhilomeneOne-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
