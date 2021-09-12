@@ -26,16 +26,15 @@ export default function WorkTracking() {
         }}>
         01:23:31
       </ChakraPetchBoldText>
-      <ChakraPetchBoldText
-        style={{
-          fontSize: 20,
-          color: colors.main,
-          textShadowOffset: {width: 1, height: 1},
-          textShadowRadius: 0,
-          textShadowColor: 'white',
-        }}>
-        YOU SHOULD FOCUS ON YOUR WORK
-      </ChakraPetchBoldText>
+      <View style={{backgroundColor: colors.main, paddingHorizontal: 20, borderRadius: 10}}>
+        <ChakraPetchBoldText
+          style={{
+            fontSize: 20,
+            color: 'white',
+          }}>
+          YOU SHOULD FOCUS ON YOUR WORK
+        </ChakraPetchBoldText>
+      </View>
     </View>
   );
 }

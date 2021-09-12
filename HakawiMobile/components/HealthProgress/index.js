@@ -42,7 +42,7 @@ export default function HealthProgress(props) {
       </View>
       <View
         style={{
-          width: 178,
+          width: 250,
           height: 33,
           backgroundColor: colors.main,
           zIndex: 1,
