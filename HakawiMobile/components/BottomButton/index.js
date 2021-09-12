@@ -1,7 +1,5 @@
-import * as React from 'react';
+import React from 'react';
 import {TouchableOpacity, View, Image, StyleSheet} from 'react-native';
-import BungeeInlineText from '../Text/BungeeInlineText';
-import colors from '../../utils/colors';
 
 export default function BottomButton(props) {
   return (

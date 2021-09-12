@@ -1,9 +1,28 @@
-import * as React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Image} from 'react-native';
 import ChakraPetchBoldText from '../Text/ChakraPetchBoldText';
 import colors from '../../utils/colors';
 
 export default function HealthProgress(props) {
+  const {
+    initialHealthPercent = 100,
+    initialHealthWidth = 320,
+    defaultHealthWidth = 320,
+  } = props;
+  const [healthPercent, setHealthPercent] = useState(initialHealthPercent);
+  const [healthWidth, setHealthWidth] = useState(initialHealthWidth);
+  useEffect(() => {
+    let myInterval = setInterval(() => {
+      setHealthWidth(healthWidth - 1);
+      if (healthWidth === 0) {
+        setHealthWidth(initialHealthWidth);
+      }
+      setHealthPercent(parseInt((healthWidth * 100) / defaultHealthWidth));
+    }, 10);
+    return () => {
+      clearInterval(myInterval);
+    };
+  });
   return (
     <View
       style={{
@@ -35,23 +54,24 @@ export default function HealthProgress(props) {
                 textShadowRadius: 0,
                 textShadowColor: 'white',
               }}>
-              82%
+              {healthPercent}%
             </ChakraPetchBoldText>
           </View>
         </View>
       </View>
       <View
         style={{
-          width: 250,
+          width: healthWidth,
           height: 33,
           backgroundColor: colors.main,
           zIndex: 1,
           position: 'absolute',
+          borderRadius: healthWidth >= defaultHealthWidth - 10 ? 10 : 0,
           left: 30,
         }}></View>
       <View
         style={{
-          width: 317,
+          width: 320,
           height: 33,
           backgroundColor: 'white',
           position: 'absolute',

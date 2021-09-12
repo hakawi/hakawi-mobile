@@ -1,9 +1,25 @@
-import * as React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import ChakraPetchBoldText from '../Text/ChakraPetchBoldText';
 import colors from '../../utils/colors';
 
-export default function WorkTracking() {
+export default function WorkTracking(props) {
+  const {initialMinute = 0, initialSeconds = 0} = props;
+  const [minutes, setMinutes] = useState(initialMinute);
+  const [seconds, setSeconds] = useState(initialSeconds);
+  useEffect(() => {
+    let myInterval = setInterval(() => {
+      setSeconds(seconds + 1);
+      if (seconds === 59) {
+        setSeconds(0);
+        setMinutes(minutes + 1);
+      }
+    }, 1000);
+    return () => {
+      clearInterval(myInterval);
+    };
+  });
+
   return (
     <View style={{alignItems: 'center'}}>
       <ChakraPetchBoldText
@@ -23,10 +39,17 @@ export default function WorkTracking() {
           textShadowOffset: {width: 2, height: 2},
           textShadowRadius: 0,
           textShadowColor: 'white',
+          width: 330,
         }}>
-        01:23:31
+        00:{minutes < 10 ? '0' + minutes : minutes}:
+        {seconds < 10 ? '0' + seconds : seconds}
       </ChakraPetchBoldText>
-      <View style={{backgroundColor: colors.main, paddingHorizontal: 20, borderRadius: 10}}>
+      <View
+        style={{
+          backgroundColor: colors.main,
+          paddingHorizontal: 20,
+          borderRadius: 10,
+        }}>
         <ChakraPetchBoldText
           style={{
             fontSize: 20,
