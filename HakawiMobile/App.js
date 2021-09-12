@@ -3,6 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
 import PlayScreen from './screens/PlayScreen';
+import MissionScreen from './screens/MissionScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +17,7 @@ function App() {
         }}>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Play" component={PlayScreen} />
+        <Stack.Screen name="Mission" component={MissionScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

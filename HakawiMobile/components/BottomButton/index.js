@@ -4,7 +4,9 @@ import {TouchableOpacity, View, Image, StyleSheet} from 'react-native';
 export default function BottomButton(props) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={()=>{
+        props.navigation.navigate('Mission')
+      }}>
         <Image
           style={{width: 55, height: 55}}
           source={require('../../assets/images/bottom_button/mission.png')}

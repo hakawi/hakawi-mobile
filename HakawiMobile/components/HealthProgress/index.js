@@ -34,7 +34,7 @@ export default function HealthProgress(props) {
         setHeartSource(heartState.green);
       }
       setHealthPercent(_healthPercent);
-    }, 1000);
+    }, 100);
     return () => {
       clearInterval(myInterval);
     };

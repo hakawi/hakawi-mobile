@@ -4,7 +4,8 @@ import ChakraPetchBoldText from '../Text/ChakraPetchBoldText';
 import colors from '../../utils/colors';
 
 export default function WorkTracking(props) {
-  const {initialMinute = 0, initialSeconds = 0} = props;
+  const {initialHour = 0, initialMinute = 0, initialSeconds = 0} = props;
+  const [hours, setHours] = useState(initialHour);
   const [minutes, setMinutes] = useState(initialMinute);
   const [seconds, setSeconds] = useState(initialSeconds);
   const [mainColor, setMainColor] = useState(colors.main);
@@ -15,12 +16,15 @@ export default function WorkTracking(props) {
         setSeconds(0);
         setMinutes(minutes + 1);
       }
-    }, 1000);
+      if (minutes === 59) {
+        setMinutes(0);
+        setHours(hours + 1);
+      }
+    }, 100);
     return () => {
       clearInterval(myInterval);
     };
   });
-
   return (
     <View style={{alignItems: 'center'}}>
       <ChakraPetchBoldText
@@ -42,7 +46,8 @@ export default function WorkTracking(props) {
           textShadowColor: 'white',
           width: 330,
         }}>
-        00:{minutes < 10 ? '0' + minutes : minutes}:
+        {hours < 10 ? '0' + hours : hours}:
+        {minutes < 10 ? '0' + minutes : minutes}:
         {seconds < 10 ? '0' + seconds : seconds}
       </ChakraPetchBoldText>
       <View
