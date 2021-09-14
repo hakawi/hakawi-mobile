@@ -15,8 +15,10 @@ export default function ShadowButton(props) {
           borderRadius: 10,
           position: 'relative',
           zIndex: 1,
+          justifyContent: 'center',
+          alignItems: 'center'
         }}>
-        <BungeeInlineText style={{color: 'white', fontSize: 22}}>
+        <BungeeInlineText style={{color: 'white', fontSize: 22, ...props.textStyle}}>
           {props.children}
         </BungeeInlineText>
       </View>
@@ -27,10 +29,11 @@ export default function ShadowButton(props) {
           backgroundColor: colors.secondary,
           padding: 10,
           borderRadius: 10,
+          width: '100%',
           left: 5,
           top: 5,
         }}>
-        <BungeeInlineText style={{color: colors.secondary, fontSize: 22}}>
+        <BungeeInlineText style={{color: colors.secondary, fontSize: 22, ...props.textStyle}}>
           {props.children}
         </BungeeInlineText>
       </View>

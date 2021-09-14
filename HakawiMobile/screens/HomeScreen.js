@@ -61,13 +61,14 @@ export default function HomeScreen({navigation}) {
       </View>
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <ShadowButton
+          style={{width: 155}}
           onPress={() => {
             navigation.navigate('Play');
           }}>
           PLAY NOW
         </ShadowButton>
-        <ShadowButton style={{marginTop: 15}}>SETTING</ShadowButton>
-        <ShadowButton style={{marginTop: 15}}>HELP</ShadowButton>
+        <ShadowButton style={{marginTop: 15, width: 155}}>SETTING</ShadowButton>
+        <ShadowButton style={{marginTop: 15, width: 155}}>HELP</ShadowButton>
       </View>
     </View>
   );

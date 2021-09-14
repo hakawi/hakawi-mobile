@@ -12,19 +12,19 @@ export default function BottomButton(props) {
           source={require('../../assets/images/bottom_button/mission.png')}
         />
       </TouchableOpacity>
-      <TouchableOpacity style={{...styles.button, marginLeft: 0}}>
+      <TouchableOpacity style={{...styles.button, marginLeft: 10}}>
         <Image
           style={{width: 66, height: 55}}
           source={require('../../assets/images/bottom_button/collectibles.png')}
         />
       </TouchableOpacity>
-      <TouchableOpacity style={{...styles.button, marginLeft: 10}}>
+      <TouchableOpacity style={{...styles.button, marginLeft: 20}}>
         <Image
           style={{width: 42, height: 48}}
           source={require('../../assets/images/bottom_button/market.png')}
         />
       </TouchableOpacity>
-      <TouchableOpacity style={{...styles.button, marginLeft: 10}}>
+      <TouchableOpacity style={{...styles.button, marginLeft: 20}}>
         <Image
           style={{width: 42, height: 48}}
           source={require('../../assets/images/bottom_button/friends.png')}

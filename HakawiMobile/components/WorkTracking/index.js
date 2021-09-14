@@ -11,16 +11,8 @@ export default function WorkTracking(props) {
   const [mainColor, setMainColor] = useState(colors.main);
   useEffect(() => {
     let myInterval = setInterval(() => {
-      setSeconds(seconds + 1);
-      if (seconds === 59) {
-        setSeconds(0);
-        setMinutes(minutes + 1);
-      }
-      if (minutes === 59) {
-        setMinutes(0);
-        setHours(hours + 1);
-      }
-    }, 100);
+
+    }, 10 );
     return () => {
       clearInterval(myInterval);
     };
