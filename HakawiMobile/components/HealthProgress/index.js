@@ -2,12 +2,16 @@ import React, {useState, useEffect} from 'react';
 import {View, Image} from 'react-native';
 import ChakraPetchBoldText from '../Text/ChakraPetchBoldText';
 import colors from '../../utils/colors';
+import theme from '../../constants/theme';
 
 export default function HealthProgress(props) {
   const {
     healthPercent,
-    initialHealthWidth = 320,
-    defaultHealthWidth = 320,
+    initialHealthWidth = 280,
+    defaultHealthWidth = 280,
+    defaultHeartIconHeight = 55,
+    defaultProgessBarHeight = 28,
+    themeMode,
   } = props;
 
   const heartState = {
@@ -15,66 +19,77 @@ export default function HealthProgress(props) {
     red: require('../../assets/images/health_progress/heart_red.png'),
   };
 
-  const [mainColor, setMainColor] = useState(colors.main);
-
   const healthWidth = initialHealthWidth * (healthPercent / 100);
-  const healthSource = healthPercent >= 50 ? heartState.green : heartState.red;
+  const healthSource =
+    themeMode === theme.day ? heartState.green : heartState.red;
+  const mainColor = themeMode === theme.day ? colors.main : colors.red;
 
   return (
     <View
       style={{
         position: 'relative',
-        alignItems: 'center',
         flexDirection: 'row',
+        height: defaultHeartIconHeight,
       }}>
-      <View style={{zIndex: 2, position: 'relative'}}>
-        <Image style={{width: 68, height: 58}} source={healthSource} />
+      <View
+        style={{
+          zIndex: 2,
+          position: 'absolute',
+          left: defaultHeartIconHeight * -1 + 20,
+        }}>
+        <Image
+          style={{
+            width: 68 * (defaultHeartIconHeight / 58),
+            height: defaultHeartIconHeight,
+          }}
+          source={healthSource}
+        />
         <View
           style={{
+            width: 68 * (defaultHeartIconHeight / 58) + 2,
+            height: defaultHeartIconHeight - 2,
             position: 'absolute',
-            width: 70,
-            height: 55,
+            justifyContent: 'center',
+            alignItems: 'center',
           }}>
-          <View
+          <ChakraPetchBoldText
             style={{
-              flex: 1,
-              justifyContent: 'center',
-              alignItems: 'center',
+              fontSize: 16,
+              color: 'white',
+              textShadowRadius: 0,
+              textShadowColor: 'white',
             }}>
-            <ChakraPetchBoldText
-              style={{
-                fontSize: 20,
-                color: 'white',
-                textShadowRadius: 0,
-                textShadowColor: 'white',
-              }}>
-              {healthPercent}%
-            </ChakraPetchBoldText>
-          </View>
+            {healthPercent}%
+          </ChakraPetchBoldText>
         </View>
       </View>
       <View
         style={{
-          width: healthWidth,
-          height: 33,
-          backgroundColor: mainColor,
-          zIndex: 1,
-          position: 'absolute',
-          borderRadius: healthWidth >= defaultHealthWidth - 10 ? 10 : 0,
-          left: 30,
-        }}></View>
-      <View
-        style={{
-          width: 320,
-          height: 33,
-          backgroundColor: 'white',
-          position: 'absolute',
-          borderRadius: 10,
-          left: 30,
-          zIndex: 0,
-          borderWidth: 2,
-          borderColor: mainColor,
-        }}></View>
+          justifyContent: 'center',
+          alignItems: 'flex-start',
+        }}>
+        <View
+          style={{
+            position: 'absolute',
+            width: healthWidth,
+            height: defaultProgessBarHeight,
+            backgroundColor: mainColor,
+            zIndex: 1,
+            borderBottomLeftRadius: 10,
+            borderTopLeftRadius: 10,
+            borderRadius: healthWidth >= defaultHealthWidth - 10 ? 10 : 0,
+          }}></View>
+        <View
+          style={{
+            width: initialHealthWidth,
+            height: defaultProgessBarHeight,
+            backgroundColor: 'white',
+            borderRadius: 10,
+            zIndex: 0,
+            borderWidth: 2,
+            borderColor: mainColor,
+          }}></View>
+      </View>
     </View>
   );
 }

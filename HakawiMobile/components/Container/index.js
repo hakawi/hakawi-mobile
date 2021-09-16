@@ -10,7 +10,6 @@ export default function Container(props) {
       style={{
         position: 'relative',
         flex: 1,
-        alignItems: 'center',
         padding: 30,
         ...props.style,
       }}>

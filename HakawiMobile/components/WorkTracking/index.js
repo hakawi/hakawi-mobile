@@ -2,9 +2,14 @@ import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import ChakraPetchBoldText from '../Text/ChakraPetchBoldText';
 import colors from '../../utils/colors';
+import theme from '../../constants/theme';
 
 export default function WorkTracking(props) {
-  const {mainColor, hours, minutes, seconds} = props;
+  const {hours, minutes, seconds, themeMode} = props;
+  const mainColor =  themeMode == theme.day ? colors.main : colors.red;
+  const recommendText =
+    themeMode == theme.day ? 'YOU SHOULD FOCUS ON YOUR WORK' : 'TIME TO GO OUT';
+
   return (
     <View style={{alignItems: 'center'}}>
       <ChakraPetchBoldText
@@ -19,12 +24,12 @@ export default function WorkTracking(props) {
       </ChakraPetchBoldText>
       <ChakraPetchBoldText
         style={{
-          fontSize: 75,
+          fontSize: 80,
           color: mainColor,
           textShadowOffset: {width: 2, height: 2},
           textShadowRadius: 0,
           textShadowColor: 'white',
-          width: 330,
+          width: 350,
         }}>
         {hours < 10 ? '0' + hours : hours}:
         {minutes < 10 ? '0' + minutes : minutes}:
@@ -41,7 +46,7 @@ export default function WorkTracking(props) {
             fontSize: 20,
             color: 'white',
           }}>
-          YOU SHOULD FOCUS ON YOUR WORK
+          {recommendText}
         </ChakraPetchBoldText>
       </View>
     </View>
