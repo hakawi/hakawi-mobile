@@ -29,7 +29,7 @@ export default function WorkTracking(props) {
           textShadowOffset: {width: 2, height: 2},
           textShadowRadius: 0,
           textShadowColor: 'white',
-          width: 350,
+          width: 370,
         }}>
         {hours < 10 ? '0' + hours : hours}:
         {minutes < 10 ? '0' + minutes : minutes}:

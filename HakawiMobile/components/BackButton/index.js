@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 30,
     top: 30,
+    zIndex: 999
   },
   button: {},
 });

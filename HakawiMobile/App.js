@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
 import PlayScreen from './screens/PlayScreen';
 import MissionScreen from './screens/MissionScreen';
+import MissionDetailScreen from './screens/MissionDetailScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,13 @@ function App() {
         <Stack.Screen
           name="Mission"
           component={MissionScreen}
+          options={{
+            animation: 'fade',
+          }}
+        />
+        <Stack.Screen
+          name="MissionDetail"
+          component={MissionDetailScreen}
           options={{
             animation: 'fade',
           }}

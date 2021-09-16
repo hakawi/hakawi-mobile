@@ -30,6 +30,7 @@ export default function MissionScreen({navigation}) {
           flexDirection: 'row',
         }}>
         <MissionCard
+          navigation={navigation}
           title={'Smile everyday'}
           description={
             'Smiling Helps You Live Longer, Smiling Relieves Stress, Smiling Elevates Mood...'
@@ -37,6 +38,7 @@ export default function MissionScreen({navigation}) {
           image={require('../assets/images/mission/smile.png')}
         />
         <MissionCard
+          navigation={navigation}
           style={{marginLeft: 10}}
           title={'Exercise 15 mins'}
           description={
@@ -45,6 +47,7 @@ export default function MissionScreen({navigation}) {
           image={require('../assets/images/mission/exercise.png')}
         />
         <MissionCard
+          navigation={navigation}
           style={{marginLeft: 10}}
           title={'Walking around'}
           description={
