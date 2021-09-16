@@ -9,7 +9,7 @@ import colors from '../utils/colors';
 
 export default function MissionScreen({navigation}) {
   return (
-    <Container>
+    <Container style={{alignItems: 'center'}}>
       <PlantBackground />
       <BackButton navigation={navigation} />
       <ChakraPetchBoldText

@@ -14,7 +14,7 @@ export default function PlantBackground(props) {
   };
 
   const backgroundSource =
-    themeMode == theme.day ? background.day : background.night;
+    themeMode == theme.night ? background.night : background.day;
 
   return (
     <View style={{position: 'absolute'}}>

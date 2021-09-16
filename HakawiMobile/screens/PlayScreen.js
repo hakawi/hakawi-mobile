@@ -14,7 +14,7 @@ export default function PlayScreen({navigation}) {
   const initialHealthPercent = 100;
   const initialTheme = theme.day;
   //const maximumHealthSeconds = 14400; // 4 hours
-  const maximumHealthSeconds = 140;
+  const maximumHealthSeconds = 1400;
 
   const [hours, setHours] = useState(initialHour);
   const [totalSeconds, setTotalSeconds] = useState(initialSeconds);
@@ -50,7 +50,7 @@ export default function PlayScreen({navigation}) {
       } else {
         setThemeMode(theme.day);
       }
-    }, 10);
+    }, 1000);
     return () => {
       clearInterval(myInterval);
     };
