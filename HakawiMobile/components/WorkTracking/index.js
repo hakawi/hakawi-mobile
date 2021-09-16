@@ -4,19 +4,7 @@ import ChakraPetchBoldText from '../Text/ChakraPetchBoldText';
 import colors from '../../utils/colors';
 
 export default function WorkTracking(props) {
-  const {initialHour = 0, initialMinute = 0, initialSeconds = 0} = props;
-  const [hours, setHours] = useState(initialHour);
-  const [minutes, setMinutes] = useState(initialMinute);
-  const [seconds, setSeconds] = useState(initialSeconds);
-  const [mainColor, setMainColor] = useState(colors.main);
-  useEffect(() => {
-    let myInterval = setInterval(() => {
-
-    }, 10 );
-    return () => {
-      clearInterval(myInterval);
-    };
-  });
+  const {mainColor, hours, minutes, seconds} = props;
   return (
     <View style={{alignItems: 'center'}}>
       <ChakraPetchBoldText

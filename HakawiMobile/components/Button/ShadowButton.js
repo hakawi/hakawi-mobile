@@ -30,8 +30,8 @@ export default function ShadowButton(props) {
           padding: 10,
           borderRadius: 10,
           width: '100%',
-          left: 5,
-          top: 5,
+          left: 3,
+          top: 3,
         }}>
         <BungeeInlineText style={{color: colors.secondary, fontSize: 22, ...props.textStyle}}>
           {props.children}

@@ -5,18 +5,20 @@ import colors from '../../utils/colors';
 
 export default function HealthProgress(props) {
   const {
-    initialHealthPercent = 100,
+    healthPercent,
     initialHealthWidth = 320,
     defaultHealthWidth = 320,
   } = props;
+
   const heartState = {
     green: require('../../assets/images/health_progress/heart.png'),
     red: require('../../assets/images/health_progress/heart_red.png'),
-  }
-  const [healthPercent, setHealthPercent] = useState(initialHealthPercent);
-  const [healthWidth, setHealthWidth] = useState(initialHealthWidth);
+  };
+
   const [mainColor, setMainColor] = useState(colors.main);
-  const [heartSource, setHeartSource] = useState(heartState.green);
+
+  const healthWidth = initialHealthWidth * (healthPercent / 100);
+  const healthSource = healthPercent >= 50 ? heartState.green : heartState.red;
 
   return (
     <View
@@ -26,10 +28,7 @@ export default function HealthProgress(props) {
         flexDirection: 'row',
       }}>
       <View style={{zIndex: 2, position: 'relative'}}>
-        <Image
-          style={{width: 68, height: 58}}
-          source={heartSource}
-        />
+        <Image style={{width: 68, height: 58}} source={healthSource} />
         <View
           style={{
             position: 'absolute',
