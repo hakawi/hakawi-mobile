@@ -17,7 +17,7 @@ export default function PlantBackground(props) {
     themeMode == theme.night ? background.night : background.day;
 
   return (
-    <View style={{position: 'absolute'}}>
+    <View style={{position: 'absolute', zIndex: 0}}>
       <Image
         style={{width: windowWidth, height: windowHeight, left: 0, top: 0}}
         source={backgroundSource}

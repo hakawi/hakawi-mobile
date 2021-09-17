@@ -5,6 +5,8 @@ import HomeScreen from './screens/HomeScreen';
 import PlayScreen from './screens/PlayScreen';
 import MissionScreen from './screens/MissionScreen';
 import MissionDetailScreen from './screens/MissionDetailScreen';
+import CompletedScreen from './screens/CompletedScreen';
+import NewItemScreen from './screens/NewItemScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +36,20 @@ function App() {
         <Stack.Screen
           name="MissionDetail"
           component={MissionDetailScreen}
+          options={{
+            animation: 'fade',
+          }}
+        />
+        <Stack.Screen
+          name="Completed"
+          component={CompletedScreen}
+          options={{
+            animation: 'fade',
+          }}
+        />
+        <Stack.Screen
+          name="NewItem"
+          component={NewItemScreen}
           options={{
             animation: 'fade',
           }}

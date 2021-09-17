@@ -5,7 +5,22 @@ import PlantBackground from '../components/PlantBackground';
 import Card from '../components/Card';
 import BackButton from '../components/BackButton';
 
-export default function MissionScreen({navigation}) {
+export default function MissionDetailScreen({navigation}) {
+  const [totalSeconds, setTotalSeconds] = useState(0);
+
+  useEffect(() => {
+    let myInterval = setInterval(() => {
+      const _totalSeconds = totalSeconds + 1;
+      if (_totalSeconds === 1) {
+        navigation.navigate('Completed');
+      }
+      setTotalSeconds(_totalSeconds);
+    }, 1000);
+    return () => {
+      clearInterval(myInterval);
+    };
+  });
+
   return (
     <Container style={{alignItems: 'center'}}>
       <PlantBackground />
@@ -17,7 +32,7 @@ export default function MissionScreen({navigation}) {
           justifyContent: 'center',
           flexDirection: 'row',
         }}>
-        <Card style={{flex: 1, margin: 20}} />
+        <Card style={{flex: 1, margin: 30}} height={250} />
       </View>
     </Container>
   );
