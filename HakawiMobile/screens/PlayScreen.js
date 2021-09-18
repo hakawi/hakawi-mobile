@@ -146,6 +146,7 @@ export default function PlayScreen({navigation}) {
   const [themeMode, setThemeMode] = useState(theme.day);
   const [items, setItems] = useState(initialItems);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   useEffect(() => {
     let myInterval = setInterval(() => {
@@ -180,13 +181,14 @@ export default function PlayScreen({navigation}) {
     };
   });
 
-  const renderRow = column => {
+  const renderRow = positionX => {
     let data = [];
     for (let i = 0; i < maxColumns; i++) {
       data.push(i);
     }
-    return data.map((item, index) => (
+    return data.map((positionY, index) => (
       <View
+        key={index}
         style={{
           backgroundColor: 'white',
           justifyContent: 'center',
@@ -196,11 +198,20 @@ export default function PlayScreen({navigation}) {
           borderWidth: 1,
           borderColor: '#ddd',
         }}>
-        {/* <TouchableWithoutFeedback onPress={() => {}}>
-          <Text style={{fontSize: 10}}>
-            {column},{item}
-          </Text>
-        </TouchableWithoutFeedback> */}
+        <TouchableWithoutFeedback
+          onPress={() => {
+            if (matrixOpacity !== 0) {
+              const _items = items;
+              _items[selectedIndex].positionX = positionX;
+              _items[selectedIndex].positionY = positionY;
+              setItems(_items);
+            }
+          }}>
+          {/* <Text style={{fontSize: 10}}>
+            {positionX},{positionY}
+          </Text> */}
+          <View style={{width: itemWidth, height: itemHeight}}></View>
+        </TouchableWithoutFeedback>
       </View>
     ));
   };
@@ -232,7 +243,7 @@ export default function PlayScreen({navigation}) {
     return itemWidth * positionY - width / 2 + itemWidth / 2;
   };
 
-  const getComponent = item => {
+  const getComponent = (item, index) => {
     let opacity = selectedItem === null ? 1 : selectedItem === item ? 1 : 0.5;
     switch (item.type) {
       case 'image':
@@ -241,6 +252,7 @@ export default function PlayScreen({navigation}) {
             onPress={() => {
               setMatrixOpacity(matrixOpacity !== 0 ? 0 : 0.5);
               setSelectedItem(selectedItem === null ? item : null);
+              setSelectedIndex(index);
             }}>
             <Image
               style={{
@@ -288,7 +300,7 @@ export default function PlayScreen({navigation}) {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        {getComponent(item)}
+        {getComponent(item, index)}
       </View>
     ));
   };
@@ -305,16 +317,7 @@ export default function PlayScreen({navigation}) {
         }}>
         <View>
           {renderMatrix()}
-          <View
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: rowWidth,
-              height: rowHeight * maxRows,
-            }}>
-            {renderItems()}
-          </View>
+          {renderItems()}
         </View>
       </View>
     </Container>
