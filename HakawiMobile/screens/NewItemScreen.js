@@ -42,7 +42,9 @@ export default function NewItem({navigation}) {
             mainBackground={colors.lightGreen}
             shadowBackground={'#86A439'}
             style={{width: 150}}
-            >
+            onPress={() => {
+              navigation.navigate('Play');
+            }}>
             <ChakraPetchBoldText
               style={{
                 color: '#627A23',

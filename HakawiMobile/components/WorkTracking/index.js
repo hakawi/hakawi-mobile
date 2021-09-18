@@ -5,13 +5,19 @@ import colors from '../../utils/colors';
 import theme from '../../constants/theme';
 
 export default function WorkTracking(props) {
-  const {hours, minutes, seconds, themeMode} = props;
-  const mainColor =  themeMode == theme.day ? colors.main : colors.red;
+  const {hours, minutes, seconds, themeMode, width, height} = props;
+  const mainColor = themeMode == theme.day ? colors.main : colors.red;
   const recommendText =
     themeMode == theme.day ? 'YOU SHOULD FOCUS ON YOUR WORK' : 'TIME TO GO OUT';
 
   return (
-    <View style={{alignItems: 'center'}}>
+    <View
+      style={{
+        width: width,
+        height: height,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
       <ChakraPetchBoldText
         style={{
           fontSize: 20,
@@ -24,12 +30,11 @@ export default function WorkTracking(props) {
       </ChakraPetchBoldText>
       <ChakraPetchBoldText
         style={{
-          fontSize: 80,
+          fontSize: 45,
           color: mainColor,
           textShadowOffset: {width: 2, height: 2},
           textShadowRadius: 0,
           textShadowColor: 'white',
-          width: 370,
         }}>
         {hours < 10 ? '0' + hours : hours}:
         {minutes < 10 ? '0' + minutes : minutes}:
@@ -43,7 +48,7 @@ export default function WorkTracking(props) {
         }}>
         <ChakraPetchBoldText
           style={{
-            fontSize: 20,
+            fontSize: 12,
             color: 'white',
           }}>
           {recommendText}

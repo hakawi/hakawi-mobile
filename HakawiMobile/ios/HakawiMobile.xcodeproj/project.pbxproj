@@ -8,25 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* HakawiMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* HakawiMobileTests.m */; };
+		09DECE59C0CE458889036F57 /* ChakraPetch-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16FA87F671D04D968BF81D4C /* ChakraPetch-LightItalic.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		18649C56DEC132CA92FB1C7F /* libPods-HakawiMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 795CC6B237218256A835ECB0 /* libPods-HakawiMobile.a */; };
+		2D9D234DB0114BC9AD55E6FC /* ChauPhilomeneOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6BFBE4C33EC47B69FFFE0FA /* ChauPhilomeneOne-Regular.ttf */; };
+		3BB2CCDD43314D2D900CC851 /* ChakraPetch-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52727559C097472D976D4D25 /* ChakraPetch-Italic.ttf */; };
+		40C193D0BB684F80BBC8A85C /* ChakraPetch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67F7186A37F6416980E5EAD7 /* ChakraPetch-Regular.ttf */; };
+		5B0672DE21AE45DF8EB9844B /* ChauPhilomeneOne-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D0E869E2F864A8C8BAA0A34 /* ChauPhilomeneOne-Italic.ttf */; };
+		5FECDE08BDE64D64804F4EBE /* ChakraPetch-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 347F58E4FC9F44378D953F6D /* ChakraPetch-Bold.ttf */; };
+		64309A1722AE4E47A673952E /* ChakraPetch-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7656BADAB6C43B3B6CD93F4 /* ChakraPetch-SemiBoldItalic.ttf */; };
+		689FAAE0B6AA4FB5B74073DC /* ChakraPetch-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B303AEAE39CD455CAEE28A3A /* ChakraPetch-MediumItalic.ttf */; };
+		73A738F31DDD4A20A4117B46 /* ChakraPetch-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0993128BAD5B49F391419BB3 /* ChakraPetch-SemiBold.ttf */; };
+		802AB028446143ECB4B0C7EF /* ChakraPetch-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EA0538FEB2145AC85F82EA8 /* ChakraPetch-BoldItalic.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		A7A80E1961BE47B3BDBCC651 /* ChakraPetch-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC6F15A50A4B4FFBB5796F07 /* ChakraPetch-Light.ttf */; };
 		DC5A9E2AF1DC8D2174C6A2A6 /* libPods-HakawiMobile-HakawiMobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C184BDEA524539EE99B3BE /* libPods-HakawiMobile-HakawiMobileTests.a */; };
 		DE830D598A0D48F2979A8F4E /* BungeeInline-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89BD942D1E54638B0D34295 /* BungeeInline-Regular.ttf */; };
-		5FECDE08BDE64D64804F4EBE /* ChakraPetch-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 347F58E4FC9F44378D953F6D /* ChakraPetch-Bold.ttf */; };
-		802AB028446143ECB4B0C7EF /* ChakraPetch-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EA0538FEB2145AC85F82EA8 /* ChakraPetch-BoldItalic.ttf */; };
-		3BB2CCDD43314D2D900CC851 /* ChakraPetch-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52727559C097472D976D4D25 /* ChakraPetch-Italic.ttf */; };
-		A7A80E1961BE47B3BDBCC651 /* ChakraPetch-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC6F15A50A4B4FFBB5796F07 /* ChakraPetch-Light.ttf */; };
-		09DECE59C0CE458889036F57 /* ChakraPetch-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16FA87F671D04D968BF81D4C /* ChakraPetch-LightItalic.ttf */; };
 		ECA4984E1FC74B3FA936AB14 /* ChakraPetch-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D04D53DC0B240E0B28DEEA1 /* ChakraPetch-Medium.ttf */; };
-		689FAAE0B6AA4FB5B74073DC /* ChakraPetch-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B303AEAE39CD455CAEE28A3A /* ChakraPetch-MediumItalic.ttf */; };
-		40C193D0BB684F80BBC8A85C /* ChakraPetch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67F7186A37F6416980E5EAD7 /* ChakraPetch-Regular.ttf */; };
-		73A738F31DDD4A20A4117B46 /* ChakraPetch-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0993128BAD5B49F391419BB3 /* ChakraPetch-SemiBold.ttf */; };
-		64309A1722AE4E47A673952E /* ChakraPetch-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7656BADAB6C43B3B6CD93F4 /* ChakraPetch-SemiBoldItalic.ttf */; };
-		5B0672DE21AE45DF8EB9844B /* ChauPhilomeneOne-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D0E869E2F864A8C8BAA0A34 /* ChauPhilomeneOne-Italic.ttf */; };
-		2D9D234DB0114BC9AD55E6FC /* ChauPhilomeneOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6BFBE4C33EC47B69FFFE0FA /* ChauPhilomeneOne-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,32 +44,32 @@
 		00E356EE1AD99517003FC87E /* HakawiMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HakawiMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* HakawiMobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HakawiMobileTests.m; sourceTree = "<group>"; };
+		0993128BAD5B49F391419BB3 /* ChakraPetch-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ChakraPetch-SemiBold.ttf"; path = "../assets/fonts/ChakraPetch-SemiBold.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* HakawiMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HakawiMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = HakawiMobile/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = HakawiMobile/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = HakawiMobile/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = HakawiMobile/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = HakawiMobile/main.m; sourceTree = "<group>"; };
+		16FA87F671D04D968BF81D4C /* ChakraPetch-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ChakraPetch-LightItalic.ttf"; path = "../assets/fonts/ChakraPetch-LightItalic.ttf"; sourceTree = "<group>"; };
+		2D0E869E2F864A8C8BAA0A34 /* ChauPhilomeneOne-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ChauPhilomeneOne-Italic.ttf"; path = "../assets/fonts/ChauPhilomeneOne-Italic.ttf"; sourceTree = "<group>"; };
+		2EA0538FEB2145AC85F82EA8 /* ChakraPetch-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ChakraPetch-BoldItalic.ttf"; path = "../assets/fonts/ChakraPetch-BoldItalic.ttf"; sourceTree = "<group>"; };
+		347F58E4FC9F44378D953F6D /* ChakraPetch-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ChakraPetch-Bold.ttf"; path = "../assets/fonts/ChakraPetch-Bold.ttf"; sourceTree = "<group>"; };
 		42B03C279FB35D481440F25C /* Pods-HakawiMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakawiMobile.release.xcconfig"; path = "Target Support Files/Pods-HakawiMobile/Pods-HakawiMobile.release.xcconfig"; sourceTree = "<group>"; };
+		52727559C097472D976D4D25 /* ChakraPetch-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ChakraPetch-Italic.ttf"; path = "../assets/fonts/ChakraPetch-Italic.ttf"; sourceTree = "<group>"; };
+		67F7186A37F6416980E5EAD7 /* ChakraPetch-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ChakraPetch-Regular.ttf"; path = "../assets/fonts/ChakraPetch-Regular.ttf"; sourceTree = "<group>"; };
 		795CC6B237218256A835ECB0 /* libPods-HakawiMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HakawiMobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D04D53DC0B240E0B28DEEA1 /* ChakraPetch-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ChakraPetch-Medium.ttf"; path = "../assets/fonts/ChakraPetch-Medium.ttf"; sourceTree = "<group>"; };
 		7E6B206FCB04235B584FE5A6 /* Pods-HakawiMobile-HakawiMobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakawiMobile-HakawiMobileTests.debug.xcconfig"; path = "Target Support Files/Pods-HakawiMobile-HakawiMobileTests/Pods-HakawiMobile-HakawiMobileTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = HakawiMobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF7D478785020638531AC9C9 /* Pods-HakawiMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakawiMobile.debug.xcconfig"; path = "Target Support Files/Pods-HakawiMobile/Pods-HakawiMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		B303AEAE39CD455CAEE28A3A /* ChakraPetch-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ChakraPetch-MediumItalic.ttf"; path = "../assets/fonts/ChakraPetch-MediumItalic.ttf"; sourceTree = "<group>"; };
+		B7656BADAB6C43B3B6CD93F4 /* ChakraPetch-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ChakraPetch-SemiBoldItalic.ttf"; path = "../assets/fonts/ChakraPetch-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		B9AE56736620407DD79105C8 /* Pods-HakawiMobile-HakawiMobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HakawiMobile-HakawiMobileTests.release.xcconfig"; path = "Target Support Files/Pods-HakawiMobile-HakawiMobileTests/Pods-HakawiMobile-HakawiMobileTests.release.xcconfig"; sourceTree = "<group>"; };
+		BC6F15A50A4B4FFBB5796F07 /* ChakraPetch-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ChakraPetch-Light.ttf"; path = "../assets/fonts/ChakraPetch-Light.ttf"; sourceTree = "<group>"; };
+		C6BFBE4C33EC47B69FFFE0FA /* ChauPhilomeneOne-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ChauPhilomeneOne-Regular.ttf"; path = "../assets/fonts/ChauPhilomeneOne-Regular.ttf"; sourceTree = "<group>"; };
+		C89BD942D1E54638B0D34295 /* BungeeInline-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "BungeeInline-Regular.ttf"; path = "../assets/fonts/BungeeInline-Regular.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		C89BD942D1E54638B0D34295 /* BungeeInline-Regular.ttf */ = {isa = PBXFileReference; name = "BungeeInline-Regular.ttf"; path = "../assets/fonts/BungeeInline-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		347F58E4FC9F44378D953F6D /* ChakraPetch-Bold.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-Bold.ttf"; path = "../assets/fonts/ChakraPetch-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2EA0538FEB2145AC85F82EA8 /* ChakraPetch-BoldItalic.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-BoldItalic.ttf"; path = "../assets/fonts/ChakraPetch-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		52727559C097472D976D4D25 /* ChakraPetch-Italic.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-Italic.ttf"; path = "../assets/fonts/ChakraPetch-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		BC6F15A50A4B4FFBB5796F07 /* ChakraPetch-Light.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-Light.ttf"; path = "../assets/fonts/ChakraPetch-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		16FA87F671D04D968BF81D4C /* ChakraPetch-LightItalic.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-LightItalic.ttf"; path = "../assets/fonts/ChakraPetch-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		7D04D53DC0B240E0B28DEEA1 /* ChakraPetch-Medium.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-Medium.ttf"; path = "../assets/fonts/ChakraPetch-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B303AEAE39CD455CAEE28A3A /* ChakraPetch-MediumItalic.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-MediumItalic.ttf"; path = "../assets/fonts/ChakraPetch-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		67F7186A37F6416980E5EAD7 /* ChakraPetch-Regular.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-Regular.ttf"; path = "../assets/fonts/ChakraPetch-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0993128BAD5B49F391419BB3 /* ChakraPetch-SemiBold.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-SemiBold.ttf"; path = "../assets/fonts/ChakraPetch-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B7656BADAB6C43B3B6CD93F4 /* ChakraPetch-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "ChakraPetch-SemiBoldItalic.ttf"; path = "../assets/fonts/ChakraPetch-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2D0E869E2F864A8C8BAA0A34 /* ChauPhilomeneOne-Italic.ttf */ = {isa = PBXFileReference; name = "ChauPhilomeneOne-Italic.ttf"; path = "../assets/fonts/ChauPhilomeneOne-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C6BFBE4C33EC47B69FFFE0FA /* ChauPhilomeneOne-Regular.ttf */ = {isa = PBXFileReference; name = "ChauPhilomeneOne-Regular.ttf"; path = "../assets/fonts/ChauPhilomeneOne-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +130,6 @@
 				7E6B206FCB04235B584FE5A6 /* Pods-HakawiMobile-HakawiMobileTests.debug.xcconfig */,
 				B9AE56736620407DD79105C8 /* Pods-HakawiMobile-HakawiMobileTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -142,6 +141,26 @@
 				00C184BDEA524539EE99B3BE /* libPods-HakawiMobile-HakawiMobileTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3570FF62687B474E852C3EE1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C89BD942D1E54638B0D34295 /* BungeeInline-Regular.ttf */,
+				347F58E4FC9F44378D953F6D /* ChakraPetch-Bold.ttf */,
+				2EA0538FEB2145AC85F82EA8 /* ChakraPetch-BoldItalic.ttf */,
+				52727559C097472D976D4D25 /* ChakraPetch-Italic.ttf */,
+				BC6F15A50A4B4FFBB5796F07 /* ChakraPetch-Light.ttf */,
+				16FA87F671D04D968BF81D4C /* ChakraPetch-LightItalic.ttf */,
+				7D04D53DC0B240E0B28DEEA1 /* ChakraPetch-Medium.ttf */,
+				B303AEAE39CD455CAEE28A3A /* ChakraPetch-MediumItalic.ttf */,
+				67F7186A37F6416980E5EAD7 /* ChakraPetch-Regular.ttf */,
+				0993128BAD5B49F391419BB3 /* ChakraPetch-SemiBold.ttf */,
+				B7656BADAB6C43B3B6CD93F4 /* ChakraPetch-SemiBoldItalic.ttf */,
+				2D0E869E2F864A8C8BAA0A34 /* ChauPhilomeneOne-Italic.ttf */,
+				C6BFBE4C33EC47B69FFFE0FA /* ChauPhilomeneOne-Regular.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -175,27 +194,6 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
-		};
-		3570FF62687B474E852C3EE1 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				C89BD942D1E54638B0D34295 /* BungeeInline-Regular.ttf */,
-				347F58E4FC9F44378D953F6D /* ChakraPetch-Bold.ttf */,
-				2EA0538FEB2145AC85F82EA8 /* ChakraPetch-BoldItalic.ttf */,
-				52727559C097472D976D4D25 /* ChakraPetch-Italic.ttf */,
-				BC6F15A50A4B4FFBB5796F07 /* ChakraPetch-Light.ttf */,
-				16FA87F671D04D968BF81D4C /* ChakraPetch-LightItalic.ttf */,
-				7D04D53DC0B240E0B28DEEA1 /* ChakraPetch-Medium.ttf */,
-				B303AEAE39CD455CAEE28A3A /* ChakraPetch-MediumItalic.ttf */,
-				67F7186A37F6416980E5EAD7 /* ChakraPetch-Regular.ttf */,
-				0993128BAD5B49F391419BB3 /* ChakraPetch-SemiBold.ttf */,
-				B7656BADAB6C43B3B6CD93F4 /* ChakraPetch-SemiBoldItalic.ttf */,
-				2D0E869E2F864A8C8BAA0A34 /* ChauPhilomeneOne-Italic.ttf */,
-				C6BFBE4C33EC47B69FFFE0FA /* ChauPhilomeneOne-Regular.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -545,7 +543,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = FS5Q6C42P9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = HakawiMobile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -557,10 +556,11 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = tech.hakawi;
 				PRODUCT_NAME = HakawiMobile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -571,7 +571,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = FS5Q6C42P9;
 				INFOPLIST_FILE = HakawiMobile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -582,9 +583,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = tech.hakawi;
 				PRODUCT_NAME = HakawiMobile;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
