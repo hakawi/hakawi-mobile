@@ -17,6 +17,7 @@ export default function WorkTracking(props) {
         height: height,
         justifyContent: 'center',
         alignItems: 'center',
+        ...props.style
       }}>
       <ChakraPetchBoldText
         style={{

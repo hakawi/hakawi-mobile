@@ -31,7 +31,7 @@ export default function PlayScreen({navigation}) {
   const itemHeight = (windowHeight - padding * 2) / maxRows;
   const rowWidth = windowWidth - padding * 2;
   const rowHeight = (windowHeight - padding * 2) / maxRows;
-  const items = [
+  const initialItems = [
     {
       id: 1,
       positionX: 5,
@@ -39,6 +39,7 @@ export default function PlayScreen({navigation}) {
       width: 185,
       height: 204,
       type: 'image',
+      opacity: 1,
       data: {
         source: require('../assets/images/play/tree.png'),
       },
@@ -50,6 +51,7 @@ export default function PlayScreen({navigation}) {
       width: 115,
       height: 68,
       type: 'image',
+      opacity: 1,
       data: {
         source: require('../assets/images/play/house.png'),
       },
@@ -61,6 +63,7 @@ export default function PlayScreen({navigation}) {
       width: 31,
       height: 36,
       type: 'image',
+      opacity: 1,
       data: {
         source: require('../assets/images/play/chicken.png'),
       },
@@ -72,6 +75,7 @@ export default function PlayScreen({navigation}) {
       width: 31,
       height: 36,
       type: 'image',
+      opacity: 1,
       data: {
         source: require('../assets/images/play/chicken.png'),
       },
@@ -83,6 +87,7 @@ export default function PlayScreen({navigation}) {
       width: 120,
       height: 108,
       type: 'image',
+      opacity: 1,
       data: {
         source: require('../assets/images/play/machine.png'),
       },
@@ -94,6 +99,7 @@ export default function PlayScreen({navigation}) {
       width: 31,
       height: 36,
       type: 'image',
+      opacity: 1,
       data: {
         source: require('../assets/images/play/chicken.png'),
       },
@@ -105,6 +111,7 @@ export default function PlayScreen({navigation}) {
       width: 87,
       height: 55,
       type: 'image',
+      opacity: 1,
       data: {
         source: require('../assets/images/play/cow.png'),
       },
@@ -112,7 +119,8 @@ export default function PlayScreen({navigation}) {
     {
       id: 8,
       positionX: 2,
-      positionY: 24,
+      positionY: 8,
+      opacity: 1,
       width: 270,
       height: 70,
       type: 'workTracking',
@@ -123,6 +131,7 @@ export default function PlayScreen({navigation}) {
       positionY: 5,
       width: 270,
       height: 70,
+      opacity: 1,
       type: 'bottomButton',
     },
   ];
@@ -135,6 +144,8 @@ export default function PlayScreen({navigation}) {
   const [healthPercent, setHealthPercent] = useState(initialHealthPercent);
   const [matrixOpacity, setMatrixOpacity] = useState(0);
   const [themeMode, setThemeMode] = useState(theme.day);
+  const [items, setItems] = useState(initialItems);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
     let myInterval = setInterval(() => {
@@ -185,9 +196,11 @@ export default function PlayScreen({navigation}) {
           borderWidth: 1,
           borderColor: '#ddd',
         }}>
-        <Text style={{fontSize: 10}}>
-          {column},{item}
-        </Text>
+        {/* <TouchableWithoutFeedback onPress={() => {}}>
+          <Text style={{fontSize: 10}}>
+            {column},{item}
+          </Text>
+        </TouchableWithoutFeedback> */}
       </View>
     ));
   };
@@ -220,16 +233,28 @@ export default function PlayScreen({navigation}) {
   };
 
   const getComponent = item => {
+    let opacity = selectedItem === null ? 1 : selectedItem === item ? 1 : 0.5;
     switch (item.type) {
       case 'image':
         return (
-          <Image
-            style={{width: item.width, height: item.height}}
-            source={item.data.source}></Image>
+          <TouchableWithoutFeedback
+            onPress={() => {
+              setMatrixOpacity(matrixOpacity !== 0 ? 0 : 0.5);
+              setSelectedItem(selectedItem === null ? item : null);
+            }}>
+            <Image
+              style={{
+                width: item.width,
+                height: item.height,
+                opacity: opacity,
+              }}
+              source={item.data.source}></Image>
+          </TouchableWithoutFeedback>
         );
       case 'workTracking':
         return (
           <WorkTracking
+            style={{opacity: opacity}}
             width={item.width}
             height={item.height}
             themeMode={themeMode}
@@ -263,24 +288,9 @@ export default function PlayScreen({navigation}) {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <TouchableWithoutFeedback
-          onPress={() => setMatrixOpacity(matrixOpacity !== 0 ? 0 : 0.5)}>
-          {getComponent(item)}
-        </TouchableWithoutFeedback>
+        {getComponent(item)}
       </View>
     ));
-    // return (
-    //   <View
-    //     style={{
-    //       position: 'absolute',
-    //       top: getTop(3, 8, 100, 150),
-    //       left: getLeft(3, 8, 100, 150),
-    //       zIndex: 200,
-    //       backgroundColor: 'yellow',
-    //       width: 100,
-    //       height: 150,
-    //     }}></View>
-    // );
   };
 
   return (
