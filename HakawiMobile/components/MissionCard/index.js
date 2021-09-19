@@ -7,7 +7,7 @@ import Card from '../Card';
 import colors from '../../utils/colors';
 
 export default function MissionCard(props) {
-  const {style, title, description, image, navigation} = props;
+  const {style, title, description, image, navigation, onPress} = props;
   return (
     <Card
       width={193}
@@ -38,9 +38,7 @@ export default function MissionCard(props) {
         <ShadowButton
           style={{marginTop: 15}}
           textStyle={{fontSize: 13}}
-          onPress={() => {
-            navigation.navigate('MissionDetail');
-          }}>
+          onPress={onPress}>
           Let's start
         </ShadowButton>
       </View>

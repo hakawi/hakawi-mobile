@@ -36,6 +36,9 @@ export default function MissionScreen({navigation}) {
             'Smiling Helps You Live Longer, Smiling Relieves Stress, Smiling Elevates Mood...'
           }
           image={require('../assets/images/mission/smile.png')}
+          onPress={() => {
+            navigation.navigate('FaceDetection');
+          }}
         />
         <MissionCard
           navigation={navigation}
@@ -45,6 +48,8 @@ export default function MissionScreen({navigation}) {
             'Exercise controls weight, Exercise combats health conditions and diseases...'
           }
           image={require('../assets/images/mission/exercise.png')}
+          onPress={() => {
+          }}
         />
         <MissionCard
           navigation={navigation}
@@ -54,6 +59,9 @@ export default function MissionScreen({navigation}) {
             'Improve Circulation, Shore Up Your Bones, Enjoy a Longer Life, Lighten Your Mood...'
           }
           image={require('../assets/images/mission/walking.png')}
+          onPress={() => {
+            navigation.navigate('MissionDetail');
+          }}
         />
       </View>
     </Container>

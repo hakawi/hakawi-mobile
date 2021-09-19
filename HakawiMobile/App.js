@@ -7,6 +7,7 @@ import MissionScreen from './screens/MissionScreen';
 import MissionDetailScreen from './screens/MissionDetailScreen';
 import CompletedScreen from './screens/CompletedScreen';
 import NewItemScreen from './screens/NewItemScreen';
+import FaceDetectionScreen from './screens/FaceDetectionScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -50,6 +51,13 @@ function App() {
         <Stack.Screen
           name="NewItem"
           component={NewItemScreen}
+          options={{
+            animation: 'fade',
+          }}
+        />
+        <Stack.Screen
+          name="FaceDetection"
+          component={FaceDetectionScreen}
           options={{
             animation: 'fade',
           }}
