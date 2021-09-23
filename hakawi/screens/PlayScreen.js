@@ -5,6 +5,8 @@ import {
   Text,
   Image,
   TouchableWithoutFeedback,
+  TouchableOpacity,
+  ActivityIndicator,
 } from "react-native";
 import Container from "../components/Container";
 import HealthProgress from "../components/HealthProgress";
@@ -12,7 +14,8 @@ import WorkTracking from "../components/WorkTracking";
 import BottomButton from "../components/BottomButton";
 import PlantBackground from "../components/PlantBackground";
 import theme from "../constants/theme";
-import {width, height} from "../utils/window";
+import { width, height } from "../utils/window";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const windowWidth = width;
 const windowHeight = height;
@@ -36,7 +39,7 @@ export default function PlayScreen({ navigation }) {
     {
       id: 1,
       positionX: 5,
-      positionY: 4,
+      positionY: 3,
       width: 185,
       height: 204,
       type: "image",
@@ -128,6 +131,15 @@ export default function PlayScreen({ navigation }) {
     },
     {
       id: 9,
+      positionX: 0,
+      positionY: 2,
+      width: 200,
+      height: 70,
+      opacity: 1,
+      type: "healthProgress",
+    },
+    {
+      id: 10,
       positionX: 10,
       positionY: 5,
       width: 270,
@@ -143,11 +155,41 @@ export default function PlayScreen({ navigation }) {
   const [minutes, setMinutes] = useState(initialMinute);
   const [mainColor, setMainColor] = useState(colors.main);
   const [healthPercent, setHealthPercent] = useState(initialHealthPercent);
-  const [matrixOpacity, setMatrixOpacity] = useState(0);
+  const [matrixOpacity, setMatrixOpacity] = useState(0.5);
   const [themeMode, setThemeMode] = useState(theme.day);
-  const [items, setItems] = useState(initialItems);
+  const [items, setItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [displayMatrix, setDisplayMatrix] = useState(false);
+  const rows = [];
+  for (let i = 0; i < maxRows; i++) {
+    rows.push(i);
+  }
+  const columns = [];
+  for (let i = 0; i < maxColumns; i++) {
+    columns.push(i);
+  }
+
+  const storeItems = async (value) => {
+    try {
+      const jsonValue = JSON.stringify(value);
+      await AsyncStorage.setItem("@items", jsonValue);
+    } catch (e) {
+      // saving error
+    }
+  };
+
+  const loadItems = async () => {
+    try {
+      const _itemsData = await AsyncStorage.getItem("@items");
+      const _items = _itemsData != null ? JSON.parse(_itemsData) : initialItems;
+      setItems((prevState) => _items);
+      setLoading(false);
+    } catch (e) {
+      // error reading value
+    }
+  };
 
   useEffect(() => {
     let myInterval = setInterval(() => {
@@ -172,23 +214,34 @@ export default function PlayScreen({ navigation }) {
       }
       // if (_healthPercent <= 50) {
       //   setThemeMode(theme.night);
-      // } else {
-
       // }
-      setThemeMode(theme.day);
+      // setThemeMode(theme.day);
     }, 1000);
+
     return () => {
       clearInterval(myInterval);
     };
   });
 
-  const renderRow = (positionX) => {
-    let data = [];
-    for (let i = 0; i < maxColumns; i++) {
-      data.push(i);
+  useEffect(() => {
+    loadItems();
+  }, []);
+
+  const handleMatrixSelect = (positionX, positionY) => {
+    if (displayMatrix) {
+      const newItems = [...items];
+      newItems[selectedIndex].positionX = positionX;
+      newItems[selectedIndex].positionY = positionY;
+      setItems((prevState) => newItems);
+      setDisplayMatrix(false);
+      setSelectedItem(null);
+      storeItems(newItems);
     }
-    return data.map((positionY, index) => (
-      <View
+  };
+
+  const renderRow = (positionX) => {
+    return columns.map((positionY, index) => (
+      <TouchableOpacity
         key={index}
         style={{
           backgroundColor: "white",
@@ -199,32 +252,20 @@ export default function PlayScreen({ navigation }) {
           borderWidth: 1,
           borderColor: "#ddd",
         }}
+        onPress={() => {
+          handleMatrixSelect(positionX, positionY);
+        }}
       >
-        <TouchableWithoutFeedback
-          onPress={() => {
-            if (matrixOpacity !== 0) {
-              const _items = items;
-              _items[selectedIndex].positionX = positionX;
-              _items[selectedIndex].positionY = positionY;
-              setItems(_items);
-            }
-          }}
-        >
-          {/* <Text style={{fontSize: 10}}>
+        {/* <Text style={{fontSize: 10}}>
             {positionX},{positionY}
           </Text> */}
-          <View style={{ width: itemWidth, height: itemHeight }}></View>
-        </TouchableWithoutFeedback>
-      </View>
+        <View style={{ width: itemWidth, height: itemHeight }}></View>
+      </TouchableOpacity>
     ));
   };
 
   const renderMatrix = () => {
-    let data = [];
-    for (let i = 0; i < maxRows; i++) {
-      data.push(i);
-    }
-    return data.map((item, index) => (
+    return rows.map((item, index) => (
       <View
         key={index}
         style={{
@@ -249,28 +290,22 @@ export default function PlayScreen({ navigation }) {
 
   const getComponent = (item, index) => {
     let opacity = selectedItem === null ? 1 : selectedItem === item ? 1 : 0.5;
+    let component;
     switch (item.type) {
       case "image":
-        return (
-          <TouchableWithoutFeedback
-            onPress={() => {
-              setMatrixOpacity(matrixOpacity !== 0 ? 0 : 0.5);
-              setSelectedItem(selectedItem === null ? item : null);
-              setSelectedIndex(index);
+        component = (
+          <Image
+            style={{
+              width: item.width,
+              height: item.height,
+              opacity: opacity,
             }}
-          >
-            <Image
-              style={{
-                width: item.width,
-                height: item.height,
-                opacity: opacity,
-              }}
-              source={item.data.source}
-            ></Image>
-          </TouchableWithoutFeedback>
+            source={item.data.source}
+          ></Image>
         );
+        break;
       case "workTracking":
-        return (
+        component = (
           <WorkTracking
             style={{ opacity: opacity }}
             width={item.width}
@@ -282,9 +317,38 @@ export default function PlayScreen({ navigation }) {
             mainColor={mainColor}
           />
         );
+        break;
       case "bottomButton":
-        return <BottomButton navigation={navigation} themeMode={themeMode} />;
+        component = (
+          <BottomButton navigation={navigation} themeMode={themeMode} />
+        );
+        break;
+      case "healthProgress":
+        component = (
+          <HealthProgress
+            width={item.width}
+            height={item.height}
+            navigation={navigation}
+            themeMode={themeMode}
+            healthPercent={healthPercent}
+          />
+        );
+        break;
+      default:
+        component = <View></View>;
     }
+
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          setSelectedItem(selectedItem === null ? item : null);
+          setDisplayMatrix(!displayMatrix);
+          setSelectedIndex(index);
+        }}
+      >
+        {component}
+      </TouchableOpacity>
+    );
   };
 
   const renderItems = () => {
@@ -315,19 +379,27 @@ export default function PlayScreen({ navigation }) {
   return (
     <Container>
       <PlantBackground themeMode={themeMode} />
-      <View
-        style={{
-          flex: 1,
-          position: "relative",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <View>
-          {renderMatrix()}
-          {renderItems()}
+      {loading ? (
+        <View
+          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+        >
+          <ActivityIndicator color={colors.main} size={"large"} />
         </View>
-      </View>
+      ) : (
+        <View
+          style={{
+            flex: 1,
+            position: "relative",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <>
+            {displayMatrix && renderMatrix()}
+            {renderItems()}
+          </>
+        </View>
+      )}
     </Container>
   );
 }

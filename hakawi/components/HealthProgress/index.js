@@ -7,8 +7,7 @@ import theme from '../../constants/theme';
 export default function HealthProgress(props) {
   const {
     healthPercent,
-    initialHealthWidth = 280,
-    defaultHealthWidth = 280,
+    width,
     defaultHeartIconHeight = 55,
     defaultProgessBarHeight = 28,
     themeMode,
@@ -19,7 +18,7 @@ export default function HealthProgress(props) {
     red: require('../../assets/images/health_progress/heart_red.png'),
   };
 
-  const healthWidth = initialHealthWidth * (healthPercent / 100);
+  const healthWidth = width * (healthPercent / 100);
   const healthSource =
     themeMode === theme.day ? heartState.green : heartState.red;
   const mainColor = themeMode === theme.day ? colors.main : colors.red;
@@ -77,11 +76,11 @@ export default function HealthProgress(props) {
             zIndex: 1,
             borderBottomLeftRadius: 10,
             borderTopLeftRadius: 10,
-            borderRadius: healthWidth >= defaultHealthWidth - 10 ? 10 : 0,
+            borderRadius: 10,
           }}></View>
         <View
           style={{
-            width: initialHealthWidth,
+            width: width,
             height: defaultProgessBarHeight,
             backgroundColor: 'white',
             borderRadius: 10,

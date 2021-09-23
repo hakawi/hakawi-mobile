@@ -57,7 +57,7 @@ export default function HomeScreen({navigation}) {
           HAKAWI
         </BungeeInlineText>
         <BungeeInlineText style={{fontSize: 22, color: colors.main}}>
-          #makeyourhealthbetter
+          #movetoearn
         </BungeeInlineText>
       </View>
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
