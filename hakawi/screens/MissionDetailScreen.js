@@ -5,7 +5,7 @@ import PlantBackground from "../components/PlantBackground";
 import Card from "../components/Card";
 import BackButton from "../components/BackButton";
 import RNLocation from "react-native-location";
-// import * as Location from "expo-location";
+import * as Location from "expo-location";
 import ChakraPetchBoldText from "../components/Text/ChakraPetchBoldText";
 import ChakraPetchRegularText from "../components/Text/ChakraPetchRegularText";
 
@@ -14,10 +14,12 @@ export default function MissionDetailScreen({ navigation }) {
   const [currentLocations, setCurrentLocations] = useState(null);
   const [firstLocation, setFirstLocation] = useState(null);
   const [numberOfCheck, setNumberOfCheck] = useState(0);
+  const requestRef = React.useRef();
   // const [location, setLocation] = useState(null);
   // const [errorMsg, setErrorMsg] = useState(null);
 
   useEffect(() => {
+    console.log("currentLocations", currentLocations);
     if (!firstLocation) {
       setFirstLocation(currentLocations);
     }
@@ -25,9 +27,6 @@ export default function MissionDetailScreen({ navigation }) {
       setNumberOfCheck(0);
     }
     if (firstLocation && currentMeasure() >= 10) {
-      if (this.locationSubscription) {
-        this.locationSubscription = null;
-      }
       setNumberOfCheck(numberOfCheck + 1);
       if (numberOfCheck >= 10) {
         setCurrentLocations(null);
@@ -63,51 +62,31 @@ export default function MissionDetailScreen({ navigation }) {
   };
 
   useEffect(() => {
-
     RNLocation.configure({
-      distanceFilter: 20, // Meters
+      distanceFilter: 1,
       desiredAccuracy: {
         ios: "best",
-        android: "balancedPowerAccuracy"
+        android: "balancedPowerAccuracy",
       },
-      // Android only
-      androidProvider: "auto",
-      interval: 1000, // Milliseconds
-      fastestInterval: 1000, // Milliseconds
-      maxWaitTime: 1000, // Milliseconds
     });
-
     RNLocation.requestPermission({
-      ios: "always",
+      ios: "whenInUse",
       android: {
-        detail: "coarse", // or 'fine'
-        rationale: {
-          title: "We need to access your location",
-          message: "We use your location to show where you are on the map",
-          buttonPositive: "OK",
-          buttonNegative: "Cancel",
-        },
+        detail: "coarse",
       },
-    })
-      .then((granted) => {
-        console.log("granted", granted);
-        if (granted) {
-          this.locationSubscription = RNLocation.subscribeToLocationUpdates(
-            (locations) => {
-              const location = locations[0];
-              setCurrentLocations(location);
-            }
-          );
-        }
-      })
-      .catch((e) => {
-        console.log("e", e);
-      });
-    return () => {
-      if (this.locationSubscription) {
-        this.locationSubscription = null;
+    }).then((granted) => {
+      if (granted) {
+        const locationSubscription = RNLocation.subscribeToLocationUpdates(
+          (locations) => {
+            setCurrentLocations(locations[0]);
+          }
+        );
+      } else {
+        async () => {
+          await Location.requestForegroundPermissionsAsync();
+        };
       }
-    };
+    });
   });
 
   return (

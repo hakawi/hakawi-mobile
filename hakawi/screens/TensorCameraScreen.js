@@ -18,9 +18,6 @@ import BackButton from "../components/BackButton";
 import colors from "../utils/colors";
 import { width, height } from "../utils/window";
 
-console.log("width", width);
-console.log("height", height);
-
 const TensorCamera = cameraWithTensors(Camera);
 
 const inputTensorWidth = 152;
@@ -29,6 +26,7 @@ const inputTensorHeight = 200;
 const padding = 15;
 const cameraWidth = width - padding * 2;
 const cameraHeight = height - padding * 2;
+const MIN_KEYPOINT_SCORE = 0.5;
 
 export default function TensorCameraScreen({ navigation }) {
   const [isTfReady, setIsTfReady] = useState(false);
@@ -46,6 +44,17 @@ export default function TensorCameraScreen({ navigation }) {
       }
     };
   }, []);
+
+  const checkCompleted = (keypoints) => {
+    const length = keypoints.filter((k) => k.score > MIN_KEYPOINT_SCORE).length;
+    console.log("length", length);
+    if (length === 17) {
+      setPosenetModel(null);
+      setPose(null);
+      cancelAnimationFrame(requestRef.current);
+      navigation.navigate("Completed");
+    }
+  };
 
   const loadTensorflow = async () => {
     await tf.ready();
@@ -95,10 +104,10 @@ export default function TensorCameraScreen({ navigation }) {
   };
 
   const renderPose = () => {
-    const MIN_KEYPOINT_SCORE = 0.5;
     if (pose === null) {
       return null;
     }
+    checkCompleted(pose.keypoints);
     const keypoints = pose.keypoints
       .filter((k) => k.score > MIN_KEYPOINT_SCORE)
       .map((k, i) => {
