@@ -16,6 +16,7 @@
 		31049635F32848428C6A00D1 /* ChakraPetch-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C0390CDF82E4232AE9782F9 /* ChakraPetch-MediumItalic.ttf */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
 		4F6C0D3BD4B14EA582BEB34A /* BungeeInline-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80F4F9A3DB71486FA042C5FE /* BungeeInline-Regular.ttf */; };
+		6DC7D0DE26FC323F0029A5C9 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
 		77A6DCD3DE66487B8D1AD8E1 /* ChauPhilomeneOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3B387AD6FAE41A195A199E2 /* ChauPhilomeneOne-Regular.ttf */; };
 		7EED403B801648DAA0B6AB29 /* ChakraPetch-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 553C983BDD9947D4B66ACF04 /* ChakraPetch-Bold.ttf */; };
 		95E19F2E507243A89C99FCFE /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FD02B3CE6E43759E65F982 /* noop-file.swift */; };
@@ -232,6 +233,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DC7D0DE26FC323F0029A5C9 /* main.jsbundle in Resources */,
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
@@ -363,7 +365,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = hakawi/hakawi.entitlements;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FS5Q6C42P9;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -395,8 +397,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = hakawi/hakawi.entitlements;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FS5Q6C42P9;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = hakawi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

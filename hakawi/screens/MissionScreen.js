@@ -39,7 +39,7 @@ export default function MissionScreen({ navigation }) {
           }
           image={require("../assets/images/mission/smile.png")}
           onPress={() => {
-            // navigation.navigate('FaceDetection');
+            navigation.navigate('FaceDetection');
           }}
         />
         <MissionCard

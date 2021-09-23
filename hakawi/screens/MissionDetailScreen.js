@@ -9,6 +9,9 @@ import * as Location from "expo-location";
 import ChakraPetchBoldText from "../components/Text/ChakraPetchBoldText";
 import ChakraPetchRegularText from "../components/Text/ChakraPetchRegularText";
 
+const CHECK_METTER = 20;
+const CHECK_TIMES = 10;
+
 export default function MissionDetailScreen({ navigation }) {
   const [totalSeconds, setTotalSeconds] = useState(0);
   const [currentLocations, setCurrentLocations] = useState(null);
@@ -23,12 +26,12 @@ export default function MissionDetailScreen({ navigation }) {
     if (!firstLocation) {
       setFirstLocation(currentLocations);
     }
-    if (firstLocation && currentMeasure() < 10) {
+    if (firstLocation && currentMeasure() < CHECK_METTER) {
       setNumberOfCheck(0);
     }
-    if (firstLocation && currentMeasure() >= 10) {
+    if (firstLocation && currentMeasure() >= CHECK_METTER) {
       setNumberOfCheck(numberOfCheck + 1);
-      if (numberOfCheck >= 10) {
+      if (numberOfCheck >= CHECK_TIMES) {
         setCurrentLocations(null);
         setFirstLocation(null);
         navigation.navigate("Completed");
@@ -75,16 +78,17 @@ export default function MissionDetailScreen({ navigation }) {
         detail: "coarse",
       },
     }).then((granted) => {
+      if (!granted) {
+        async () => {
+          await Location.requestForegroundPermissionsAsync();
+        };
+      }
       if (granted) {
         const locationSubscription = RNLocation.subscribeToLocationUpdates(
           (locations) => {
             setCurrentLocations(locations[0]);
           }
         );
-      } else {
-        async () => {
-          await Location.requestForegroundPermissionsAsync();
-        };
       }
     });
   });
@@ -101,7 +105,7 @@ export default function MissionDetailScreen({ navigation }) {
           flexDirection: "row",
         }}
       >
-        <Card style={{ flex: 1, margin: 30 }} height={250}>
+        <Card style={{ flex: 1, margin: 30, marginTop: 60 }} height={250}>
           {currentLocations ? (
             <View style={{ flexDirection: "row" }}>
               <View>
@@ -206,7 +210,8 @@ export default function MissionDetailScreen({ navigation }) {
                       marginTop: 10,
                     }}
                   >
-                    {firstLocation ? currentMeasure() : "0"} / 10 meters
+                    {firstLocation ? currentMeasure() : "0"} / {CHECK_METTER}{" "}
+                    meters
                   </ChakraPetchRegularText>
                 </View>
                 <View>
@@ -226,7 +231,7 @@ export default function MissionDetailScreen({ navigation }) {
                       marginTop: 5,
                     }}
                   >
-                    {numberOfCheck} / 10 times
+                    {numberOfCheck} / {CHECK_TIMES} times
                   </ChakraPetchRegularText>
                 </View>
               </View>

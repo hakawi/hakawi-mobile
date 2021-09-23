@@ -3,6 +3,7 @@
     "start": "react-native start",
     "android": "react-native run-android",
     "link": "react-native link react-native-location",
+    "build:ios": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios",
     "ios": "react-native run-ios",
     "web": "expo start --web",
     "eject": "expo eject"
@@ -15,7 +16,9 @@
     "@tensorflow/tfjs": "^3.9.0",
     "@tensorflow/tfjs-react-native": "^0.7.0",
     "expo": "~42.0.1",
+    "expo-asset": "~8.3.3",
     "expo-camera": "~11.2.2",
+    "expo-face-detector": "~10.1.1",
     "expo-gl": "~10.4.2",
     "expo-image-manipulator": "~9.2.2",
     "expo-location": "~12.1.2",

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import {
   ActivityIndicator,
   Button,
@@ -7,72 +7,87 @@ import {
   StyleSheet,
   Text,
   Platform,
-} from 'react-native';
+} from "react-native";
 
-import Container from '../components/Container';
-import PlantBackground from '../components/PlantBackground';
-import Card from '../components/Card';
-import BackButton from '../components/BackButton';
-import colors from '../utils/colors';
+import Container from "../components/Container";
+import PlantBackground from "../components/PlantBackground";
+import Card from "../components/Card";
+import BackButton from "../components/BackButton";
+import colors from "../utils/colors";
+import * as FaceDetector from "expo-face-detector";
+import { Camera } from "expo-camera";
 
-export default function FaceDetectionScreen({navigation}) {
+export default function FaceDetectionScreen({ navigation }) {
+  const [loading, setLoading] = useState(true);
+  const [type, setType] = useState(Camera.Constants.Type.front);
+
+  useEffect(() => {
+    (async () => {
+      const { status } = await Camera.requestPermissionsAsync();
+      setLoading(false);
+    })();
+  }, []);
+
   return (
-    <Container style={{alignItems: 'center'}}>
-      <PlantBackground />
+    <Container style={{ alignItems: "center" }}>
       <BackButton navigation={navigation} />
       <View
         style={{
           flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: 'row',
-        }}>
-        <Card style={{flex: 1, margin: 30}} height={250}></Card>
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "row",
+        }}
+      >
+        <Card style={{ flex: 1, margin: 30 }} height={250}>
+          {loading ? (
+            <ActivityIndicator color={colors.main} size={"large"} />
+          ) : (
+            <View>
+              <Camera style={styles.camera} type={type}>
+                <View style={styles.buttonContainer}>
+                  <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => {
+                      setType(
+                        type === Camera.Constants.Type.back
+                          ? Camera.Constants.Type.front
+                          : Camera.Constants.Type.back
+                      );
+                    }}
+                  >
+                    <Text style={styles.text}> Flip </Text>
+                  </TouchableOpacity>
+                </View>
+              </Camera>
+            </View>
+          )}
+        </Card>
       </View>
     </Container>
   );
 }
 
 const styles = StyleSheet.create({
-  loadingIndicator: {
-    position: 'absolute',
-    top: 20,
-    right: 20,
-    zIndex: 200,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  cameraContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#fff',
+  container: {
+    flex: 1,
   },
   camera: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    width: 600 / 2,
-    height: 800 / 2,
-    zIndex: 1,
-    borderWidth: 1,
-    borderColor: 'black',
-    borderRadius: 0,
+    flex: 1,
   },
-  modelResults: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    width: 600 / 2,
-    height: 800 / 2,
-    zIndex: 20,
-    borderWidth: 1,
-    borderColor: 'black',
-    borderRadius: 0,
+  buttonContainer: {
+    flex: 1,
+    backgroundColor: "transparent",
+    flexDirection: "row",
+    margin: 20,
+  },
+  button: {
+    flex: 0.1,
+    alignSelf: "flex-end",
+    alignItems: "center",
+  },
+  text: {
+    fontSize: 18,
+    color: "white",
   },
 });

@@ -17,6 +17,7 @@ import Container from "../components/Container";
 import BackButton from "../components/BackButton";
 import colors from "../utils/colors";
 import { width, height } from "../utils/window";
+import ChakraPetchBoldText from "../components/Text/ChakraPetchBoldText";
 
 const TensorCamera = cameraWithTensors(Camera);
 
@@ -28,11 +29,14 @@ const cameraWidth = width - padding * 2;
 const cameraHeight = height - padding * 2;
 const MIN_KEYPOINT_SCORE = 0.5;
 
+const CHECK_KEYPOINTS = 17;
+
 export default function TensorCameraScreen({ navigation }) {
   const [isTfReady, setIsTfReady] = useState(false);
   const [loading, setLoading] = useState(true);
   const [posenetModel, setPosenetModel] = useState(null);
   const [pose, setPose] = useState(null);
+  const [keypointsNumber, setKeypointsNumber] = useState(0);
   const requestRef = React.useRef();
 
   useEffect(() => {
@@ -47,8 +51,8 @@ export default function TensorCameraScreen({ navigation }) {
 
   const checkCompleted = (keypoints) => {
     const length = keypoints.filter((k) => k.score > MIN_KEYPOINT_SCORE).length;
-    console.log("length", length);
-    if (length === 17) {
+    setKeypointsNumber(length);
+    if (length === CHECK_KEYPOINTS) {
       setPosenetModel(null);
       setPose(null);
       cancelAnimationFrame(requestRef.current);
@@ -95,6 +99,7 @@ export default function TensorCameraScreen({ navigation }) {
             }
           );
           setPose(pose);
+          checkCompleted(pose.keypoints);
           tf.dispose([nextImageTensorValue]);
         }
       }
@@ -107,7 +112,6 @@ export default function TensorCameraScreen({ navigation }) {
     if (pose === null) {
       return null;
     }
-    checkCompleted(pose.keypoints);
     const keypoints = pose.keypoints
       .filter((k) => k.score > MIN_KEYPOINT_SCORE)
       .map((k, i) => {
@@ -176,6 +180,42 @@ export default function TensorCameraScreen({ navigation }) {
                 autorender={false}
               />
               <View style={styles.modelResults}>{renderPose()}</View>
+              <View
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  zIndex: 999,
+                  width: cameraWidth - 12,
+                  height: cameraHeight - 12,
+                }}
+              >
+                <View
+                  style={{
+                    position: "absolute",
+                    right: -25,
+                    bottom: 35 + (cameraHeight - 12) / 2 - 60,
+                    backgroundColor: colors.main,
+                    width: 120,
+                    height: 45,
+                    padding: 10,
+                    justifyContent: "center",
+                    alignItems: "center",
+                    transform: [{ rotate: "-90deg" }],
+                    borderRadius: 10
+                  }}
+                >
+                  <ChakraPetchBoldText
+                    style={{
+                      fontSize: 17,
+                      color: "white",
+                      textShadowRadius: 100,
+                    }}
+                  >
+                    {keypointsNumber}/{CHECK_KEYPOINTS} points
+                  </ChakraPetchBoldText>
+                </View>
+              </View>
             </>
           )}
         </View>
@@ -231,7 +271,6 @@ const styles = StyleSheet.create({
     top: 0,
     width: cameraWidth - 12,
     height: cameraHeight - 12,
-    backgroundColor: "red",
     zIndex: 1,
   },
   modelResults: {
@@ -239,7 +278,7 @@ const styles = StyleSheet.create({
     left: 0,
     top: 0,
     width: cameraWidth - 12,
-    height: cameraHeight - 24,
+    height: cameraHeight - 12,
     zIndex: 20,
     transform: [{ rotate: "-90deg" }],
   },
